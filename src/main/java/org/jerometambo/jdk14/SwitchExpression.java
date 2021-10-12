@@ -4,48 +4,29 @@ public class SwitchExpression {
     public static void main(String... args)
             throws Exception {
         final String in = args[0];
-        vieuxSwitch(in);
+        vieuxSwitchCommeStructureControle(in);
         
-        nouveauSwitch(in);
+        vieuxSwitchCommeExpression(in);
         
-        multipleCasesVieuxSwitch(in);
+        nouveauSwitchCommeStructureDeControle(in);
         
-        nouveauSwitchAvecBlocDeCode(in);
+        nouveauSwitchCommeExpressionAvecBlocDeCode(in);
     }
     
-    private static void nouveauSwitch(final String in)
-            throws Exception {
-        String result = switch (in) {
-            case "1", "2", "3" -> "<10";
-            case "11", "12", "13" -> ">10";
-            default -> throw new Exception("Donne moi un autre chiffre !");
-        };
-        System.out.println(result);
-    }
-    
-    private static void vieuxSwitch(final String in) {
-        String result = "";
+    private static void vieuxSwitchCommeStructureControle(final String in) {
+        System.out.println("Résultat vieux switch:");
         switch (in) {
-            case "1":
-            case "2":
-            case "3": {
-                result = "<10";
+            case "1", "2", "3": {
+                System.out.println("<10");
                 break;
             }
-            case "11":
-            case "12":
-            case "13": {
-                result = ">10";
-                break;
+            case "11", "12", "13": {
+                System.out.println(">10");
             }
         }
-        ;
-        
-        System.out.println("Résultat vieux switch:");
-        System.out.println(result);
     }
     
-    private static void multipleCasesVieuxSwitch(final String in)
+    private static void vieuxSwitchCommeExpression(final String in)
             throws Exception {
         String result = switch (in) {
             case "1", "2", "3":
@@ -58,7 +39,14 @@ public class SwitchExpression {
         System.out.println(result);
     }
     
-    private static void nouveauSwitchAvecBlocDeCode(final String in)
+    private static void nouveauSwitchCommeStructureDeControle(final String in) {
+        switch (in) {
+            case "1", "2", "3" -> System.out.println("<10");
+            case "11", "12", "13" -> System.out.println(">10");
+        }
+    }
+    
+    private static void nouveauSwitchCommeExpressionAvecBlocDeCode(final String in)
             throws Exception {
         String result = switch (in) {
             case "1", "2", "3" -> {
